@@ -5,7 +5,15 @@
 		</a>
 	</div>
 	<div class="col-md-6 text-right">
-					<a href="/login">Google Login</a>
+					{% if 'username' not in session %}
+					<a href="{{url_for('showLogin')}}">
+						<span class="glyphicon glyphicon-log-in"></span> Login
+					</a>
+					{% else %}
+					<a href="{{url_for('gdisconnect')}}">
+						<span class="glyphicon glyphicon-log-out"></span> Logout
+					</a>
+					{% endif %}
 					
 	</div>
 </div>
